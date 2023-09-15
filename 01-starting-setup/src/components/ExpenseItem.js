@@ -1,18 +1,11 @@
+import ExpenseDate from './ExpenseDate';
 import "./ExpenseItem.css";
 
 function ExpenseItem(props) {
-  const month = props.date.toLocaleString('en-US', { month : 'long'})
-  const day = props.date.toLocaleString('en-US', { day : '2-digit'})
-  const year = props.date.getFullYear()
-  //로직 추출 : JSX 함수에 넣지말고, 별도의 변수 만들기 - month(코드 간결화 목적) 
 
   return (
     <div className="expense-item">
-      <div>
-        <div>{month}</div>
-        <div>{year}</div>
-        <div>{day}</div>
-      </div>
+      <ExpenseDate date={props.date}/>
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
